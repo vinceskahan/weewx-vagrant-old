@@ -6,7 +6,7 @@
 # this is in a provisioner shell script so that it can be run
 # standalone 'outside' vagrant with identical results
 #
-# tested with debian jesse   (8)
+# tested with debian jessie  (8)
 #                    stretch (9)
 #
 # tested with ubuntu xenial (16.04)
