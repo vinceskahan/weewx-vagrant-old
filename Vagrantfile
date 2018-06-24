@@ -7,15 +7,15 @@ VAGRANTFILE_API_VERSION = "2"
 # select which VM(s) to run
 # (0=skip 1=use)
 
-RUN_UBUNTU_XENIAL64_TGZ  = 1       # 16.04 LTS      EOL 04/2021
-RUN_UBUNTU_BIONIC64_TGZ  = 1       # 18.04 LTS      EOL 04/2021
-RUN_DEBIAN_JESSIE64_TGZ  = 1       # debian 8       EOL 06/2020
-RUN_DEBIAN_STRETCH64_TGZ = 1       # debian 9       EOL estimated 2022
+RUN_UBUNTU_XENIAL64_TGZ  = 0       # 16.04 LTS      EOL 04/2021
+RUN_UBUNTU_BIONIC64_TGZ  = 0       # 18.04 LTS      EOL 04/2021
+RUN_DEBIAN_JESSIE64_TGZ  = 0       # debian 8       EOL 06/2020
+RUN_DEBIAN_STRETCH64_TGZ = 0       # debian 9       EOL estimated 2022
 RUN_CENTOS6_TGZ          = 0       # uses init.d    EOL 11/2020
 RUN_CENTOS7_TGZ          = 0       # wants systemd  EOL 06/2024
 
 RUN_UBUNTU_XENIAL64_PKG  = 0       # same using dpkg
-RUN_UBUNTU_BIONIC64_PKG  = 0       # same using dpkg
+RUN_UBUNTU_BIONIC64_PKG  = 1       # same using dpkg
 RUN_DEBIAN_JESSIE64_PKG  = 0       # same using dpkg
 RUN_DEBIAN_STRETCH64_PKG = 0       # same using dpkg
 RUN_CENTOS6_PKG          = 0       # same using rpm
@@ -33,9 +33,9 @@ known_weehosts = {
     "centos7tgz"   => { :ip => "192.168.33.16", :port => 8816, :mem => 512, :box => "centos/7",         :setup => "setup-centos.sh", :provisioner => "weewx-tgz-initd.sh"   },
 
     "xenial64pkg"  => { :ip => "192.168.33.21", :port => 8821, :mem => 512, :box => "ubuntu/xenial64",  :setup => "setup-buntu.sh",  :provisioner => "weewx-pkg-systemd.sh" },
-    "bionic64pkg"  => { :ip => "192.168.33.22", :port => 8822, :mem => 512, :box => "ubuntu/bionic64",  :setup => "setup-buntu.sh",  :provisioner => "weewx-tgz-systemd.sh" },
-    "jessie64pkg"  => { :ip => "192.168.33.23", :port => 8823, :mem => 512, :box => "debian/jessie64",  :setup => "setup-buntu.sh",  :provisioner => "weewx-tgz-systemd.sh" },
-    "stretch64pkg" => { :ip => "192.168.33.24", :port => 8824, :mem => 512, :box => "debian/stretch64", :setup => "setup-buntu.sh",  :provisioner => "weewx-tgz-systemd.sh" },
+    "bionic64pkg"  => { :ip => "192.168.33.22", :port => 8822, :mem => 512, :box => "ubuntu/bionic64",  :setup => "setup-buntu.sh",  :provisioner => "weewx-pkg-systemd.sh" },
+    "jessie64pkg"  => { :ip => "192.168.33.23", :port => 8823, :mem => 512, :box => "debian/jessie64",  :setup => "setup-buntu.sh",  :provisioner => "weewx-pkg-systemd.sh" },
+    "stretch64pkg" => { :ip => "192.168.33.24", :port => 8824, :mem => 512, :box => "debian/stretch64", :setup => "setup-buntu.sh",  :provisioner => "weewx-pkg-systemd.sh" },
     "centos6pkg"   => { :ip => "192.168.33.25", :port => 8825, :mem => 512, :box => "centos/6",         :setup => "setup-centos.sh", :provisioner => "weewx-rpm-initd.sh"   },
     "centos7pkg"   => { :ip => "192.168.33.26", :port => 8826, :mem => 512, :box => "centos/7",         :setup => "setup-centos.sh", :provisioner => "weewx-rpm-initd.sh"   },
 }
@@ -64,7 +64,7 @@ if RUN_CENTOS7_TGZ == 1
 end
 
 if RUN_UBUNTU_BIONIC64_PKG == 1
-    weehosts.store("bionic64tgz", known_weehosts["bionic64tgz"])
+    weehosts.store("bionic64pkg", known_weehosts["bionic64pkg"])
 end
 if RUN_UBUNTU_XENIAL64_PKG == 1
     weehosts.store("xenial64pkg", known_weehosts["xenial64pkg"])
