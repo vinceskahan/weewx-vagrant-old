@@ -11,11 +11,11 @@ RUN_UBUNTU_XENIAL64_TGZ  = 0       # 16.04 LTS      EOL 04/2021
 RUN_UBUNTU_BIONIC64_TGZ  = 0       # 18.04 LTS      EOL 04/2021
 RUN_DEBIAN_JESSIE64_TGZ  = 0       # debian 8       EOL 06/2020
 RUN_DEBIAN_STRETCH64_TGZ = 0       # debian 9       EOL estimated 2022
-RUN_CENTOS6_TGZ          = 0       # uses init.d    EOL 11/2020
-RUN_CENTOS7_TGZ          = 0       # wants systemd  EOL 06/2024
+RUN_CENTOS6_TGZ          = 1       # uses init.d    EOL 11/2020
+RUN_CENTOS7_TGZ          = 1       # wants systemd  EOL 06/2024
 
 RUN_UBUNTU_XENIAL64_PKG  = 0       # same using dpkg
-RUN_UBUNTU_BIONIC64_PKG  = 1       # same using dpkg
+RUN_UBUNTU_BIONIC64_PKG  = 0       # same using dpkg
 RUN_DEBIAN_JESSIE64_PKG  = 0       # same using dpkg
 RUN_DEBIAN_STRETCH64_PKG = 0       # same using dpkg
 RUN_CENTOS6_PKG          = 0       # same using rpm
