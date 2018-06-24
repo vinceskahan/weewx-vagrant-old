@@ -130,6 +130,10 @@ case "x${WEEWX_DOWNLOAD_METHOD}" in
             sudo sed -i 's:debug = 0:debug = 1:' /home/weewx/weewx.conf
         fi
 
+        # set the location to something indicating this os
+        HOSTNAME=`hostname`
+        sed -i -e s:Hood\ River,\ Oregon:${HOSTNAME}: /home/weewx/weewx.conf
+
         # light that candle
         echo "...starting weewx..."
         sudo systemctl start weewx

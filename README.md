@@ -1,29 +1,33 @@
 ### weewx-vagrant configs
 
-This permits you do easily install weewx under vagrant/VirtualBox by cloning this repo and uncommenting a line or two in the Vagrantfile and provision.sh script.  The provision.sh script also can be run standalone on any debian(ish) system that is systemd-based.
+This permits you do easily install weewx under Vagrant/VirtualBox by cloning this repo and doing trivial editing in the Vagrantfile (and possibly the pertinent provisioner script).  See the Vagrantfile for details.
 
 
 #### tested on
 
 * debian 8 (jessie)
 * debian 9 (stretch)
-* ubuntu 16.04 (trusty)
-* ubuntu 17.10 (xenial)
-* ubuntu 18.04 (artful)
+* ubuntu 16.04 LTS (xenial)
+* ubuntu 18.04 LTS (bionic)
+* centos 6
+* centos 7
 
 ### to use:
 * clone this repo
 * edit the Vagrantfile to salt to taste
-    * select the base box you want to use
-    * set the port you want vagrant to listen on for web traffic
-* edit the provision.sh script:
-    *  pick the weewx installation method you want to use
+    * set any VM(s) you want to build to '1' at the top of the Vagrantfile
+    * (optionally) tweak the settings just below there
+* (optionally) edit the provision.sh script:
+    * pick the weewx installation method you want to use
     * set weewx DEBUG=1 or DEBUG=0 as desired
-* do 'vagrant box add' and 'vagrant up' like any other vagrant configuration
-* after 5 minutes, weewx should populate the web content, logging to /var/log/syslog
+* do 'vagrant up' like any other vagrant configuration
+* after 5 minutes, weewx should populate the web content
 
 ### notes:
-* debian vagrant boxes do not enable Virtual Box vbguest synched folder functionality.  Be sure to have that line commented out in the Vagrantfile
+* each VM will expose a different localhost port for the webserver, see the Vagrantfile for details
+* the provisioner scripts "should" be directly usable on the target os outside Vagrant
 
-* weewx 3.8.0 dpkg will not install on ubuntu 18.04 (as of 2018-0402) due to ubuntu removing the python-imaging package.  At this time you need to use the setup.py method to install weewx on a ubuntu 18.04 system.  This will require editing your provision.sh script lightly to pick a setup.py-based installation method.
-
+### current status:
+* this integrated Vagrantfile has been tested with the 'tgz' method of weewx 3.8.0 only
+* previously the 'git' (bleeding edge) and 'pkg' (prepackaged .deb or .rpm) have been tested
+* at this time, centos7 uses an init.d file rather than a systemctl service file
