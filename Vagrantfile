@@ -19,7 +19,7 @@ RUN_UBUNTU_BIONIC64_PKG  = 0       # same using dpkg
 RUN_DEBIAN_JESSIE64_PKG  = 0       # same using dpkg
 RUN_DEBIAN_STRETCH64_PKG = 0       # same using dpkg
 RUN_CENTOS6_PKG          = 0       # same using rpm
-RUN_CENTOS7_PKG          = 0       # same using rpm
+RUN_CENTOS7_PKG          = 1       # same using rpm
 
 #---- stop editing here -----
 
