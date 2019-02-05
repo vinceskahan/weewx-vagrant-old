@@ -6,7 +6,7 @@ WEEWX_DOWNLOAD_METHOD="git"        # bleeding edge, setup.py
 # which is http://www.weewx.com/downloads
 #    - this is ignored for 'git' and 'dpkg' installations
 
-WEEWX_VERSION="3.8.2"  # used for tarball installs only
+WEEWX_VERSION="3.9.0"  # used for tarball installs only
 
 # set to 1 for debug enabled
 DEBUG_MODE=1
@@ -34,6 +34,7 @@ case "x${WEEWX_DOWNLOAD_METHOD}" in
         # set the location to something indicating this os
         HOSTNAME=`hostname`
         sed -i -e s:Santa\'s\ Workshop\,\ North\ Pole:${HOSTNAME}: /etc/weewx/weewx.conf
+        sed -i -e s:My\ Little\ Town,\ Oregon:${HOSTNAME}: /home/weewx/weewx.conf
 
         # set debug mode on
         if [ "x${DEBUG_MODE}" = "x1" ]
@@ -79,6 +80,7 @@ case "x${WEEWX_DOWNLOAD_METHOD}" in
         # set the location to something indicating this os
         HOSTNAME=`hostname`
         sed -i -e s:Hood\ River,\ Oregon:${HOSTNAME}: /home/weewx/weewx.conf
+        sed -i -e s:My\ Little\ Town,\ Oregon:${HOSTNAME}: /home/weewx/weewx.conf
 
         # light that candle
         echo "...starting weewx..."
