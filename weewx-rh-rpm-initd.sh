@@ -7,7 +7,7 @@ WEEWX_DOWNLOAD_METHOD="rhrpm"      # official version, Redhat rpm
 # which is http://www.weewx.com/downloads
 #    - this is ignored for 'git' and 'dpkg' installations
 
-WEEWX_VERSION="3.9.0"  # used for tarball installs only
+WEEWX_VERSION="3.9.1"  # used for tarball installs only
 WEEWX_RELEASE="1"      # used for tarball installs only
 
 # set to 1 for debug enabled

@@ -11,7 +11,7 @@ WEEWX_DOWNLOAD_METHOD="git"        # bleeding edge, setup.py
 # which is http://www.weewx.com/downloads
 #    - this is ignored for 'git' and 'dpkg' installations
 
-WEEWX_VERSION="3.9.0"  # used for tarball installs only
+WEEWX_VERSION="3.9.1"  # used for tarball installs only
 
 # set to 1 for debug enabled
 DEBUG_MODE=1
