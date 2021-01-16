@@ -23,6 +23,10 @@ USE_RELEASED_VERSION=1
 # STOP EDITING HERE
 #------------------------------------------------------
 
+# turn off multipathd or ubuntu2004 logs incessantly and endlessly
+systemctl disable multipathd.service
+systemctl stop    multipathd.service
+
 # this installs weewx itself as well as nginx
 # and a couple extra packages we always install
 
