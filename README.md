@@ -8,3 +8,9 @@ This repo contains config files for how to install weewx v4 under Vagrant/Virtua
 
 See the subdirectories here for details about how each differs in configuration.
 
+Notes:
+
+* to suppress virtual box guest addition installation, add this to the Vagrantfile
+        
+    config.vbguest.auto_update = false
+
