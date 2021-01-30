@@ -13,7 +13,7 @@ USE_SETUP=0
 #------------------------------------------------------
 
 # pick your desired version
-VER="4.3.0"
+VER="4.4.0"
 
 # set to '1' to use a released version
 # set to '0' to use a development version
