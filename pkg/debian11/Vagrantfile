@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "debian/bullseye64"
   config.vm.provider "virtualbox" do |vb, override|
     vb.memory = "1024"
-    override.vm.network "forwarded_port", guest: 80, host: 8206
+    override.vm.network "forwarded_port", guest: 80, host: 8103
   end
   config.vm.provision "shell", path: "provision.sh"
   config.vbguest.auto_update = false
