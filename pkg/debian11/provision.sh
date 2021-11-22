@@ -27,6 +27,7 @@ USE_RELEASED_VERSION=1
 systemctl disable multipathd.service
 systemctl stop    multipathd.service
 
+apt-get update
 apt-get install -y gnupg
 
 # this installs weewx itself as well as nginx
@@ -36,7 +37,7 @@ if [ "x${USE_PACKAGE}" = "x1" ]
 then
     export WEEWX_CONF="/etc/weewx/weewx.conf"
 
-    wget -qO - http://weewx.com/keys.html | sudo apt-key add -
+    wget -qO - http://weewx.com/keys.html | sudo gpg --dearmor > /etc/apt/trusted.gpg.d/weewx.gpg
 
     # unfortunately ubuntu1804 needs the python2 weewx package
     OS_CODENAME=`lsb_release -c | awk '{print $2}'`
