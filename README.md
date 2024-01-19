@@ -1,3 +1,6 @@
+## DEPRECATED REPO PLEASE DO NOT USE
+Please use the new v5-specific weewx-vagrant repo here.
+Keeping these here to maintain the history...
 
 ## Vagrant files to install weewx v4
 
